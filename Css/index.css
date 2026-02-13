@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Ribeye&family=Righteous&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+button { cursor: pointer; border: none; background: none;}
+img    { width: 100%; }
+ul     { list-style: none; }
+a      { text-decoration: none;}
+
+header {
+    position: fixed;    /*queda fijo al hacer scroll*/
+    width: 100%;        /*ocupa todo el ancho de la pantalla*/
+    z-index: 5;         /*aparece encima del resto*/
+    background-color: #3b141c;
+}
+header .navbar {
+    display: flex;
+    padding: 20px; /*espaciado interno del header*/
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .nav-logo .nav-text {
+    color: white;
+}
+.navbar .nav-menu {
+    display: flex; /*muestra los enlaces de navegación en línea*/
+    gap: 10px; /*espacio entre los enlaces*/
+    font-weight: bold;
+    font-size: 30px;
+}
+.nav-text {
+    font-family: "Ribeye", cursive;
+    padding-left: 50px;
+    font-size: 35px;
+}
+.navbar .nav-menu .nav-link {
+    padding: 10px 18px; /*espaciado interno de los enlaces*/
+    color: white; /*color del texto de los enlaces*/
+    font-size: large;
+    font-size: 23px;
+    border-radius: 20px; /*bordes redondeados de los enlaces*/
+    transition: 0.3s ease; /*transición suave para el cambio de color*/
+}
+.navbar .nav-menu .nav-link:hover {
+    background-color: #e2750f; /*color de fondo al pasar el mouse por encima*/
+    color: #3b141c
+}
+.nav-actions{
+    display: flex;
+    align-items: center;
+    gap: 16px; /*espacio entre los botones de acción*/
+}
+.nav-login {
+    color: white;
+    font-size: 1.4rem;
+    padding: 8px 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease; /*transición suave para el cambio de color*/
+}
+.nav-login:hover {
+    background-color: #e2750f; /*color de fondo al pasar el mouse por encima*/
+    color: #3b141c;
+    border-color: #e2750f;
+}
+.menu-toggle {
+    display: none; /*oculta el checkbox del menú en pantallas grandes*/
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(1), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(2), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(2) { opacity: 0; }
+.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(3), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.hero-section {
+    background-color: #3b141c;
+    min-height: 100vh;
+}
+.hero-section .section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    color: white;
+    padding: 0 60px; /*espaciado interno de la sección*/
+}
+.hero-section .hero-details .title {
+    color: #e2750f;
+    font-size: 2.3rem;
+    font-family: "Miniver", sans-serif;
+}  
+.hero-section .hero-details .subtitle {
+    margin-top: 8px;
+    font-size: 2.3rem;
+    max-width: 70%;
+}
+.hero-section .hero-details .description {
+    margin: 24px 0 40px;
+    font-size: 1.12rem;
+    max-width: 70%;
+}
+.hero-section .hero-details .button {
+    padding: 10px 26px;
+    background-color: #e2750f;
+    color: #3b141c;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: 0.3s ease; /*transición suave para el cambio de color*/
+}
+.hero-section .hero-details .buttons {
+    display: flex;
+    gap: 23px;
+}
+.hero-section .hero-details .button:hover {
+    color: #ffffff;
+}
+.hero-section .hero-image-wrapper {
+    max-width: 800px;
+    margin-right: 30px;
+}
+h3 {
+    font-size: 50px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /*muestra el botón de hamburguesa en pantallas pequeñas*/
+    }
+    .navbar .nav-menu {
+        display: none; /*oculta los enlaces de navegación en pantallas pequeñas*/
+        flex-direction: column; /*coloca los enlaces en columna*/
+        width: 100%; /*ocupa todo el ancho del header*/
+    }
+    /* Cuando el checkbox esta marcado, mostar el menu */
+    #menu-toggle:checked + .nav-menu {
+        display: flex; /*muestra los enlaces de navegación cuando el checkbox está marcado*/
+    }
+    .hero-section .section-content{
+        flex-direction: column-reverse; /*coloca el contenido de la sección en columna*/
+        text-align: center; /*centra el texto en la sección*/
+        padding: 100px 24px 60px; /*espaciado interno de la sección*/
+    }
+}
