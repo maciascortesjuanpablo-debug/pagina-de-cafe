@@ -144,22 +144,67 @@ h3 {
     margin-bottom: 16px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .hero-section .section-content { padding: 100px 40px 60px; gap: 30px; }
+    .hero-section .hero-details .subtitle { font-size: 1.9rem; max-width: 90%; }
+    .hero-section .hero-details .description { max-width: 90%; }
+    .hero-section .hero-image-wrapper { max-width: 380px; margin-right: 0; }
+}
+@media ( max-width: 768px ) {
+
+    header .navbar {
+        padding: 14px 20px;
+        position: relative;
+        flex-wrap: wrap;     /*permite que el menu baje */
+    }
+    /* Mostrar hamburguesa */
+
     .hamburger {
-        display: flex; /*muestra el botón de hamburguesa en pantallas pequeñas*/
+        display: flex
     }
+        /* Menu cerrado por defecto */
+
     .navbar .nav-menu {
-        display: none; /*oculta los enlaces de navegación en pantallas pequeñas*/
-        flex-direction: column; /*coloca los enlaces en columna*/
-        width: 100%; /*ocupa todo el ancho del header*/
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #3b141c;
+        padding: 10px 0;
+        /* Ocupa toda la fila siguiente gracias al flex-wrap */
+        order: 3;
     }
-    /* Cuando el checkbox esta marcado, mostar el menu */
-    #menu-toggle:checked + .nav-menu {
-        display: flex; /*muestra los enlaces de navegación cuando el checkbox está marcado*/
+/* Abrir menu cuando el chek box este marcado */
+
+    .menu-toggle:checked + .nav-menu {
+        display: flex;
     }
-    .hero-section .section-content{
-        flex-direction: column-reverse; /*coloca el contenido de la sección en columna*/
-        text-align: center; /*centra el texto en la sección*/
-        padding: 100px 24px 60px; /*espaciado interno de la sección*/
+    .navbar .nav-menu .nav-link {
+        padding: 14px 24px;
+        font-size: 1.3rem;
+        width: 100%;
+        display: block;
+    }
+        /* Hero */
+
+    .hero-section .section-content {
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 100px 24px 60px;
+        text-align: center;
+        gap: 30px;
+    }
+    .hero-section .hero-details .title { font-size: 2rem; }
+        .hero-section .hero-details .subtitle { font-size: 1.6rem; max-width: 100%; }
+        .hero-section .hero-details .description { font-size: 0%; max-width: 100%; }
+        .hero-section .hero-details .buttons { justify-content: center; flex-wrap: wrap; }
+        .hero-section .hero-image-wrapper { max-width: 270px; margin-right: 0; }
+
+    @media ( max-width: 480px ) {
+        .hero-section .hero-details .title { font-size: 1.7rem; }
+        .hero-section .hero-details .subtitle { font-size: 1.3rem; }
+        .hero-section .hero-details .description { font-size: 0.95rem; margin: 18px 0 30px;}
+        .hero-section .hero-details .buttons { padding: 10px 20px; font-size: 0.95rem; width: 100%; text-align: center;}
+        .hero-section .hero-details .buttons { flex-direction: column; gap: 14px; width: 100%; }
+        .hero-section .hero-image-wrapper { max-width: 220px; }
     }
 }
