@@ -1,3 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Ribeye&family=Righteous&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+button { cursor: pointer; border: none; background: none;}
+img    { width: 100%; }
+ul     { list-style: none; }
+a      { text-decoration: none;}    
+header {    
+    width: 100%;        /*ocupa todo el ancho de la pantalla*/
+    background-color: #3b141c;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+header .navbar {
+    display: flex;
+    padding: 25px; /*espaciado interno del header*/
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .nav-logo .nav-text {
+    color: white;
+}
+.navbar .nav-menu {
+    display: flex; /*muestra los enlaces de navegación en línea*/
+    gap: 10px; /*espacio entre los enlaces*/
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px;
+    margin: auto;
+}
+.nav-text {
+    font-family: "Ribeye", cursive;
+    padding-left: 50px;
+    font-size: 35px;
+}
+.navbar .nav-menu .nav-link {
+    padding: 15px 18px; /*espaciado interno de los enlaces*/
+    color: white; /*color del texto de los enlaces*/
+    font-size: large;
+    font-size: 23px;
+    border-radius: 20px; /*bordes redondeados de los enlaces*/
+    transition: 0.3s ease; /*transición suave para el cambio de color*/
+}
+.navbar .nav-menu .nav-link:hover {
+    background-color: #e2750f; /*color de fondo al pasar el mouse por encima*/
+    color: #3b141c
+}
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /*espacio entre los botones de acción*/
+}
+
+.carrito {
+    color: white;
+    font-size: 1.4rem;
+    padding: 8px 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    margin: 30px 0 0 10px;
+    transition: 0.3s ease; /*transición suave para el cambio de color*/
+}
+.carrito:hover {
+    background-color: #e2750f; /*color de fondo al pasar el mouse por encima*/
+    color: #3b141c;
+    border-color: #e2750f;
+}
+
+.menu-toggle {
+    display: none; /*oculta el checkbox del menú en pantallas grandes*/
+}
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(1), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(2), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(2) { opacity: 0; }
+.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(3), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.menu-icon {
+    display: none; /*oculta el checkbox del menú en pantallas grandes*/
+}
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -5,7 +106,72 @@
     padding: 20px 40px;
     justify-content: center;
 }
+body {
+    background-color: #1d1c1c;
+    padding-top: 90px;
+}
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto; /* centra el contenedor */
+}
 
+.ecard {
+  width: 100%;
+}
+.menu-container .ecard:nth-child(5) {
+  grid-column: 2 / span 1;
+}
+
+.menu-container .ecard:nth-child(6) {
+  grid-column: 3 / span 1;
+}
+.btn-group {
+    display: flex;
+    justify-content: center; /* centra los botones */
+    gap: 10px; /* espacio entre botones */
+    margin-top: 15px;
+}
+
+.btn-group button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* Botón comprar */
+.btncomprar {
+    background: #ff8c00;
+    color: white;
+}
+
+/* Botón detalles */
+.detalles {
+    background: #ffa733;
+    color: white;
+}
+
+.menu-title {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 10px;
+    position: relative;
+    margin-top: 60px;
+    justify-items: center;
+}
+
+.menu-title::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: orange;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
 .ecard {
     background: linear-gradient(to right, #3b141c, #5c1f2a, #7a2d3b);
     border-radius: 15px;
@@ -20,6 +186,7 @@
     padding: 10px 20px 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #fff;
+    width: 100%;
 }
 
 .ecard:hover {
@@ -45,4 +212,114 @@
     font-weight: bold;
     padding: 4px 7px;
     border-radius: 50%;
+}
+
+/* ============================= */
+/* LAPTOP PEQUEÑA */
+/* ============================= */
+@media (max-width: 1200px) {
+
+.menu-container {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.menu-container .ecard:nth-child(5),
+.menu-container .ecard:nth-child(6) {
+    grid-column: auto;
+}
+
+}
+
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+@media (max-width: 992px) {
+
+.navbar {
+    padding: 15px;
+}
+
+.navbar .nav-menu {
+    font-size: 20px;
+    gap: 5px;
+}
+
+.menu-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.ecard {
+    height: auto;
+}
+
+}
+
+
+/* ============================= */
+/* CELULAR */
+/* ============================= */
+@media (max-width: 768px) {
+
+/* NAVBAR RESPONSIVE */
+.navbar {
+    flex-wrap: wrap;
+}
+
+.navbar .nav-menu {
+    width: 100%;
+    justify-content: center;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+/* GRID MENU */
+.menu-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+/* CARDS */
+.ecard {
+    max-width: 90%;
+    margin: auto;
+}
+
+/* TITULO */
+.menu-title {
+    font-size: 22px;
+}
+
+}
+
+
+/* ============================= */
+/* CELULARES PEQUEÑOS */
+/* ============================= */
+@media (max-width: 480px) {
+
+.nav-text {
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.navbar .nav-menu {
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-group button {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+.menu-title {
+    font-size: 20px;
+}
+
+.container {
+    padding: 10px;
+}
+
 }
