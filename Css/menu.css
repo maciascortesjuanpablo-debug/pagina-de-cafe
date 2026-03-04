@@ -1,166 +1,147 @@
 @import url('https://fonts.googleapis.com/css2?family=Miniver&family=Ribeye&family=Righteous&display=swap');
 
-*{
+/* ===== RESET ===== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-button { cursor: pointer; border: none; background: none;}
+
+button { cursor: pointer; border: none; background: none; }
 img    { width: 100%; }
 ul     { list-style: none; }
-a      { text-decoration: none;}    
-header {    
-    width: 100%;        /*ocupa todo el ancho de la pantalla*/
+a      { text-decoration: none; }
+
+/* ===== BODY ===== */
+body {
+    background-color: #1d1c1c;
+    padding-top: 90px;
+}
+
+/* ===== HEADER / NAVBAR ===== */
+header {
+    width: 100%;
     background-color: #3b141c;
     position: fixed;
     top: 0;
     z-index: 1000;
 }
+
 header .navbar {
     display: flex;
-    padding: 25px; /*espaciado interno del header*/
+    padding: 0 30px;
+    height: 72px;
     align-items: center;
     justify-content: space-between;
 }
 
-.navbar .nav-logo .nav-text {
-    color: white;
-}
-.navbar .nav-menu {
-    display: flex; /*muestra los enlaces de navegación en línea*/
-    gap: 10px; /*espacio entre los enlaces*/
-    font-weight: bold;
-    font-size: 30px;
-    padding: 20px;
-    margin: auto;
-}
+/* Logo */
+.nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+
 .nav-text {
     font-family: "Ribeye", cursive;
-    padding-left: 50px;
-    font-size: 35px;
-}
-.navbar .nav-menu .nav-link {
-    padding: 15px 18px; /*espaciado interno de los enlaces*/
-    color: white; /*color del texto de los enlaces*/
-    font-size: large;
-    font-size: 23px;
-    border-radius: 20px; /*bordes redondeados de los enlaces*/
-    transition: 0.3s ease; /*transición suave para el cambio de color*/
-}
-.navbar .nav-menu .nav-link:hover {
-    background-color: #e2750f; /*color de fondo al pasar el mouse por encima*/
-    color: #3b141c
-}
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px; /*espacio entre los botones de acción*/
+    font-size: 1.8rem;
+    color: white;
+    font-weight: normal;
 }
 
+/* Links */
+.nav-menu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-menu .nav-link {
+    padding: 10px 20px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.nav-menu .nav-link:hover {
+    background-color: #e2750f;
+    color: #3b141c;
+}
+
+/* Carrito */
 .carrito {
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     padding: 8px 10px;
     border-radius: 50%;
     border: 2px solid white;
     display: flex;
-    margin: 30px 0 0 10px;
-    transition: 0.3s ease; /*transición suave para el cambio de color*/
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+    text-decoration: none;
 }
+
 .carrito:hover {
-    background-color: #e2750f; /*color de fondo al pasar el mouse por encima*/
+    background-color: #e2750f;
     color: #3b141c;
     border-color: #e2750f;
 }
 
-.menu-toggle {
-    display: none; /*oculta el checkbox del menú en pantallas grandes*/
+.carrito #contador {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e2750f;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 50%;
+    line-height: 1;
 }
-.menu-icon {
+
+/* ===== HAMBURGER — oculto en desktop ===== */
+.hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    padding: 5px;
+    background: none;
+    border: none;
+    padding: 4px;
+    flex-shrink: 0;
 }
-.menu-icon span {
+
+.hamburger span {
     display: block;
     width: 25px;
-    height: 3px;
-    background-color: white;
-    border-radius: 3px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(1), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(2), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(2) { opacity: 0; }
-.menu-toggle:checked ~ .nav-menu + .nav-actions .hamburger span:nth-child(3), .menu-toggle:checked + .nav-menu + .nav-actions .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-.menu-icon {
-    display: none; /*oculta el checkbox del menú en pantallas grandes*/
-}
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px 40px;
-    justify-content: center;
-}
-body {
-    background-color: #1d1c1c;
-    padding-top: 90px;
-}
-.menu-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto; /* centra el contenedor */
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
-.ecard {
-  width: 100%;
-}
-.menu-container .ecard:nth-child(5) {
-  grid-column: 2 / span 1;
-}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.menu-container .ecard:nth-child(6) {
-  grid-column: 3 / span 1;
-}
-.btn-group {
-    display: flex;
-    justify-content: center; /* centra los botones */
-    gap: 10px; /* espacio entre botones */
-    margin-top: 15px;
-}
+/* Ocultar el checkbox original */
+#menu_toggle { display: none; }
+.iconos-responsive { display: none; }
 
-.btn-group button {
-    padding: 10px 18px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-}
-/* Botón comprar */
-.btncomprar {
-    background: #ff8c00;
-    color: white;
-}
-
-/* Botón detalles */
-.detalles {
-    background: #ffa733;
-    color: white;
-}
-
+/* ===== MENU TITLE ===== */
 .menu-title {
     color: white;
-    font-size: 25px;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 50px 0 30px;
     position: relative;
-    margin-top: 60px;
-    justify-items: center;
 }
 
 .menu-title::after {
@@ -172,154 +153,185 @@ body {
     margin: 10px auto 0;
     border-radius: 5px;
 }
+
+/* ===== MENU GRID ===== */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px 60px;
+}
+
+/* ===== CARDS ===== */
 .ecard {
     background: linear-gradient(to right, #3b141c, #5c1f2a, #7a2d3b);
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    flex: 0 1 calc(33.333% - 40px);  /* 3 columnas en desktop*/
-    max-width: 320px;
-    height: 420px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    padding: 10px 20px 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 16px 20px 24px;
     color: #fff;
-    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 .ecard:hover {
-    transform: scale(1.05); /*efecto zoom al pasar el mouse*/
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-.carrito {
-    position: fixed;
-    top: 10px;
-    right: 30px;
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-.carrito #contador {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: #e2750f;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 7px;
-    border-radius: 50%;
-}
-
-/* ============================= */
-/* LAPTOP PEQUEÑA */
-/* ============================= */
-@media (max-width: 1200px) {
-
-.menu-container {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.menu-container .ecard:nth-child(5),
-.menu-container .ecard:nth-child(6) {
-    grid-column: auto;
-}
-
-}
-
-
-/* ============================= */
-/* TABLET */
-/* ============================= */
-@media (max-width: 992px) {
-
-.navbar {
-    padding: 15px;
-}
-
-.navbar .nav-menu {
-    font-size: 20px;
-    gap: 5px;
-}
-
-.menu-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.ecard {
-    height: auto;
-}
-
-}
-
-
-/* ============================= */
-/* CELULAR */
-/* ============================= */
-@media (max-width: 768px) {
-
-/* NAVBAR RESPONSIVE */
-.navbar {
-    flex-wrap: wrap;
-}
-
-.navbar .nav-menu {
+.ecard img {
     width: 100%;
+    border-radius: 10px;
+    object-fit: contain;  /* antes era cover, esto evita el recorte */
+    max-height: none;     /* elimina el límite de altura */
+}
+
+.contenido {
+    padding: 12px 0 8px;
+    flex: 1;
+}
+
+.contenido h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.contenido p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+/* ===== BOTONES ===== */
+.btn-group {
+    display: flex;
     justify-content: center;
-    font-size: 18px;
-    padding: 10px 0;
-}
-
-/* GRID MENU */
-.menu-container {
-    grid-template-columns: 1fr;
-    gap: 25px;
-}
-
-/* CARDS */
-.ecard {
-    max-width: 90%;
-    margin: auto;
-}
-
-/* TITULO */
-.menu-title {
-    font-size: 22px;
-}
-
-}
-
-
-/* ============================= */
-/* CELULARES PEQUEÑOS */
-/* ============================= */
-@media (max-width: 480px) {
-
-.nav-text {
-    font-size: 25px;
-    padding-left: 10px;
-}
-
-.navbar .nav-menu {
-    font-size: 16px;
-    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
 }
 
 .btn-group button {
-    padding: 8px 14px;
-    font-size: 14px;
+    padding: 9px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.82rem;
+    transition: opacity 0.3s;
 }
 
-.menu-title {
-    font-size: 20px;
+.btn-group button:hover { opacity: 0.85; }
+
+.btncomprar {
+    background: #e2750f;
+    color: white;
 }
 
-.container {
-    padding: 10px;
+.detalles {
+    background: #ffa733;
+    color: white;
 }
 
+/* ===== RESPONSIVE: Tablet (≤900px) ===== */
+@media (max-width: 900px) {
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
 }
+
+/* ===== RESPONSIVE: Navbar móvil (≤768px) ===== */
+@media (max-width: 768px) {
+    header .navbar {
+        padding: 0 20px;
+        position: relative;
+    }
+
+    /* Orden: hamburger | logo | carrito */
+    .hamburger {
+        display: flex;
+        order: 1;
+    }
+
+    .nav-logo {
+        order: 2;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .carrito {
+        order: 3;
+    }
+
+    /* Menú desplegable */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background-color: #3b141c;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        padding: 10px 0 16px;
+        border-top: 1px solid #5a1a1a;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .nav-menu.open { display: flex; }
+
+    .nav-menu li { width: 100%; }
+
+    .nav-menu .nav-link {
+        display: block;
+        width: 100%;
+        padding: 13px 24px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        font-size: 0.95rem;
+    }
+
+    .nav-menu .nav-link:hover {
+        background-color: #e2750f;
+        color: #3b141c;
+    }
+}
+
+/* ===== RESPONSIVE: Móvil (≤480px) ===== */
+@media (max-width: 480px) {
+    body { padding-top: 70px; }
+
+    header .navbar { height: 60px; }
+    .nav-menu { top: 60px; }
+    .nav-text { font-size: 1.4rem; }
+
+    .menu-container {
+        grid-template-columns: 1fr;
+        padding: 0 16px 50px;
+        gap: 20px;
+    }
+
+    .menu-title {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        margin: 36px 0 24px;
+    }
+
+    .ecard img { max-height: 200px; }
+}
+
+/* ===== RESPONSIVE: Móvil pequeño (≤360px) ===== */
+@media (max-width: 360px) {
+    .nav-text { font-size: 1.2rem; }
+    .menu-title { font-size: 1.1rem; }
+}
+
+
+
+

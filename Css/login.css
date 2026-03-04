@@ -77,7 +77,7 @@ header {
 }
 .navbar .nav-menu .nav-link:hover {
     background-color: #e2750f; /*color de fondo al pasar el mouse por encima*/
-    color: #3b141c
+    color: #1a1a1a
 }
 
 .nav-icons { 

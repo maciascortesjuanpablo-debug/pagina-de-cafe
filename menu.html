@@ -13,38 +13,40 @@
 </head>
 
     <body>
-        <header>
-            <nav class="navbar">
+        <!-- Reemplaza tu <header> con esto -->
 
-                <a href="./index.html" class="nav-logo">
-                    <h2 class ="nav-text">☕ Coffee</h2>
-                </a>
+<header>
+    <nav class="navbar">
 
-                <input type="checkbox" id="menu_toggle"/>
+        <!-- 1. Hamburger (izquierda en móvil) -->
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-                <div class ="iconos-responsive">
-                    <label for="menu_toggle" class ="menu-icon">
-                        <i class="fa-solid fa-bars"></i>
-                    </label>
+        <!-- 2. Logo (centro en móvil) -->
+        <a href="./index.html" class="nav-logo">
+            <h2 class="nav-text">☕ Coffee</h2>
+        </a>
 
-                    <div class="carrito">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="contador">0</span>
-                    </div>
-                </div>
+        <!-- 3. Links (menú desplegable en móvil) -->
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item"><a href="./index.html"      class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="./menu.html"       class="nav-link">Menú</a></li>
+            <li class="nav-item"><a href="./galeria.html"    class="nav-link">Galeria</a></li>
+            <li class="nav-item"><a href="./contactenos.html" class="nav-link">Contáctenos</a></li>
+        </ul>
 
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="./index.html" class= "nav-link">Home</a></li>
-                    <li class="nav-item"><a href="./index.html" class= "nav-link">Menu</a></li>
-                    <li class="nav-item"><a href="#" class= "nav-link">Galeria</a></li>
-                    <li class="nav-item"><a href="#" class= "nav-link">Contactenos</a></li>
-                </ul>
+        <!-- 4. Carrito (derecha) -->
+        <div class="carrito">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="contador">0</span>
+        </div>
 
-            </nav>
-        </header>
-
+    </nav>
+</header>
     
-
         <div class="menu-title">
             <h1>Menú</h1>
         </div>
@@ -150,6 +152,13 @@
                 
             </div>
         </div>
-        
+    <!-- Script hamburger -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('open');
+            document.getElementById('hamburger').classList.toggle('open');
+        }
+    </script>
+
     </body>
 </html>

@@ -1,0 +1,347 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1c1c1c;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: #3b141c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  height: 68px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__icon { font-size: 1.4rem; }
+
+.navbar__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar__links li { list-style: none; }
+
+.navbar__links a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: color 0.3s;
+}
+
+.navbar__links a:hover { background-color: #e2750f; }
+
+.cart-icon {
+  color: #fff;
+  font-size: 1.25rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.3s;
+}
+
+.cart-icon:hover { color: #e2750f; }
+
+/* Hamburger — oculto en desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===== MAIN ===== */
+.register-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 68px);
+  padding: 50px 20px;
+}
+
+/* ===== CARD ===== */
+.register-card {
+  background-color: #2a2a2a;
+  border-radius: 14px;
+  padding: 44px 44px 48px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== HEADER ===== */
+.register-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.register-emoji {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.register-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.register-subtitle {
+  font-size: 0.82rem;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* ===== FORM ===== */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: #666;
+  font-size: 0.88rem;
+  pointer-events: none;
+}
+
+.input-wrapper input {
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  padding: 12px 14px 12px 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-wrapper input::placeholder { color: #555; }
+
+.input-wrapper input:focus {
+  border-color: #e8b84b;
+  box-shadow: 0 0 0 3px rgba(232, 184, 75, 0.12);
+}
+
+/* Botón ojo contraseña */
+.toggle-pass {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s;
+}
+
+.toggle-pass:hover { color: #e8b84b; }
+
+/* ===== CHECKBOX ===== */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #999;
+}
+
+.form-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #e8b84b;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.form-check a {
+  color: #e8b84b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form-check a:hover { text-decoration: underline; }
+
+/* ===== BOTÓN REGISTRO ===== */
+.btn-register {
+  width: 100%;
+  background-color: #6b0f1a;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 4px;
+}
+
+.btn-register:hover { background-color: #8b1520; }
+
+/* ===== LINK LOGIN ===== */
+.login-link {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #888;
+}
+
+.login-link a {
+  color: #e8b84b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link a:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE: Tablet navbar (≤768px) ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .navbar__links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #2e0a0a;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    padding: 10px 0 16px;
+    border-top: 1px solid #5a1a1a;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  }
+
+  .navbar__links.open { display: flex; }
+  .navbar__links li { width: 100%; }
+
+  .navbar__links a {
+    display: block;
+    width: 100%;
+    padding: 13px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Orden: hamburger | logo | carrito */
+  .hamburger {
+    display: flex;
+    order: 1;
+  }
+
+  .navbar__brand {
+    order: 2;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .cart-icon { order: 3; }
+}
+
+/* ===== RESPONSIVE: Móvil (≤480px) ===== */
+@media (max-width: 480px) {
+  .navbar { height: 56px; }
+  .navbar__links { top: 56px; }
+  .navbar__name { font-size: 1.2rem; }
+
+  .register-card {
+    padding: 32px 24px 36px;
+  }
+
+  .register-title {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* ===== RESPONSIVE: Móvil pequeño (≤360px) ===== */
+@media (max-width: 360px) {
+  .register-card { padding: 28px 16px 32px; }
+  .register-title { font-size: 1.2rem; }
+  .navbar__name { font-size: 1.05rem; }
+}
