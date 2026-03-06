@@ -291,7 +291,7 @@ nav::after:hover {
     aspect-ratio: 16 / 9;
   }
 }
-
+ 
 /* ===== RESPONSIVE: Móvil pequeño (max 360px) ===== */
 @media (max-width: 360px) {
   .logo {
